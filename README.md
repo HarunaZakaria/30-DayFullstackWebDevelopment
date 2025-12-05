@@ -1,17 +1,20 @@
 ## 📅 30-Day Web Development Mastery Plan (80/20 Focus)
 
-✔ Daily tasks
-✔ Clear outcomes
-✔ Practical projects
-✔ No fluff — only what gets you RESULTS
+## ✔ Daily tasks
 
-🔥 WEEK 1 — JavaScript Essentials (Core 20%)
+## ✔ Clear outcomes
 
-Focus: Arrays, async, fetch, storage, DOM basics.
+## ✔ Practical projects
 
-Day 1 — JS Foundations Refresher
+## ✔ No fluff — only what gets you RESULTS
 
-Variables, functions, arrow functions
+## 🔥 WEEK 1 — JavaScript Essentials (Core 20%)
+
+## Focus: Arrays, async, fetch, storage, DOM basics.
+
+## Day 1 — JS Foundations Refresher
+
+## Variables, functions, arrow functions
 
 Objects vs arrays
 Practice: Write a function that formats a user object.
