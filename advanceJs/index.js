@@ -3,7 +3,7 @@ const form = document.querySelector('.form');
 const h1 = document.createElement('h1');
 const p = document.createElement('p');
 form.addEventListener('submit', function (event) {
-  //event.preventDefault();
+  event.preventDefault();
   const yourName = document.querySelector('#yourName').value;
   const partnerName = document.querySelector('#partnetName').value;
 
