@@ -19,3 +19,12 @@ h1.html('Zakaria');
 const a = $('a');
 
 a.attr('href', 'https://yahoo.com');
+
+//add event listener
+$('button').click(function () {
+  h1.addClass('big-heading');
+});
+
+$('input').keydown(function (e) {
+  h1.html(e.key);
+});
