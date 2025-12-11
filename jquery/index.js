@@ -14,3 +14,8 @@ h1.text('Haruna');
 
 //changing text in jquery using html
 h1.html('Zakaria');
+
+//manipulating attributes
+const a = $('a');
+
+a.attr('href', 'https://yahoo.com');
