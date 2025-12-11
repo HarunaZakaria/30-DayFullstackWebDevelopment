@@ -3,11 +3,13 @@ drumButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const buttonInnerHTML = button.innerHTML;
     makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
   });
 });
 
 document.addEventListener('keydown', (e) => {
   makeSound(e.key);
+  buttonAnimation(e.key);
 });
 
 function makeSound(key) {
@@ -45,5 +47,12 @@ function makeSound(key) {
       break;
   }
 }
-// let audio = new Audio('sounds/tom-1.mp3');
-//     audio.play();
+
+//button animation
+function buttonAnimation(currentKey) {
+  const activeButton = document.querySelector('.' + currentKey);
+  activeButton.classList.add('pressed');
+  setTimeout(function () {
+    activeButton.classList.remove('pressed');
+  }, 100);
+}
