@@ -3,11 +3,11 @@ import { error } from 'console';
 import fs from 'fs';
 import { randomSuperhero } from 'superheroes';
 import { randomSupervillain } from 'supervillains';
-import sillyname from 'sillyname';
+import generateName from 'sillyname';
 const myHero = randomSuperhero();
 const myVillain = randomSupervillain();
-const name = sillyname();
-console.log(myHero);
+const name = generateName();
+console.log(`I'm ${myHero}`);
 console.log(myVillain);
 console.log(name);
 // fs.writeFile('name.txt', 'Haruna', (error) => {
