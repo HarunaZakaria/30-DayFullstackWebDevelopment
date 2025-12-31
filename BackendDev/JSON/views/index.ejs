@@ -7,14 +7,14 @@
 
   <body>
     <h1>Taco Town 🌮</h1>
-
+    <!-- Recipe selection buttons -->
     <form action="/recipe" method="POST" class="buttons">
       <button type="submit" value="chicken" name="choice">🍗</button>
       <button type="submit" value="beef" name="choice">🥩</button>
       <button type="submit" value="fish" name="choice">🐟</button>
     </form>
+    <!--  Recipe display container -->
     <div id="recipeContainer" class="hidden">
-      <!-- If no recipe yet, show: -->
       <%if (recipe) {%>
       <h2 id="recipeTitle"><%= recipe.name %></h2>
       <h3>Ingredients:</h3>
@@ -32,8 +32,6 @@
       <%} else {%>
       <h2>Pick your favourite taco ingredient 👆</h2>
       <%}%>
-
-      <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
     </div>
   </body>
 </html>
