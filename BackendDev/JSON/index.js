@@ -17,6 +17,11 @@ app.get("/", (req, res) => {
 });
 
 app.post("/recipe", (req, res) => {
+  const recipeId = req.body.recipeId;
+  const recipes = JSON.parse(recipeJSON);
+  const recipe = recipes.find((r) => r.id === recipeId);
+
+  res.render("index.ejs", { recipe: recipe });
   //Step 3: Write your code here to make this behave like the solution website.
   //Step 4: Add code to views/index.ejs to use the recieved recipe object.
 });
