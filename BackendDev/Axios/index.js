@@ -20,6 +20,7 @@ app.get("/", async (req, res) => {
     });
   }
 });
+// Handle form submission
 
 app.post("/", async (req, res) => {
   try {
