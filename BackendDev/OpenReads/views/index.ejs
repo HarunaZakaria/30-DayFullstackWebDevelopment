@@ -30,7 +30,7 @@
       <%} else{%>
       <div class="weather-container">
         <div class="weather-info">
-          <h2 class="city">Today's weather for <%= locals.cityName %> is</h2>
+          <h2 class="city">Today's weather in <%= locals.cityName %> is</h2>
           <div class="icon-temp">
             <img src="<%= locals.imgUrl %>" alt="Weather Icon" />
             <h2><%= locals.temperature %> °C</h2>
@@ -43,7 +43,7 @@
     </main>
     <footer class="footer">
       <% const year = new Date().getFullYear(); %>
-      <p>&copy; <%= year %> . All rights reserved.</p>
+      <p>&copy; <%= year %> openWeather. All rights reserved.</p>
     </footer>
   </body>
 </html>
