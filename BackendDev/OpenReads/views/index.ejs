@@ -26,17 +26,24 @@
       </form>
 
       <%if (!locals.cityName){%>
-      <p>Enter your city name to check the weather</p>
+      <p class="error">Enter your city name to check the weather</p>
       <%} else{%>
       <div class="weather-container">
         <div class="weather-info">
-          <h2><%= locals.cityName %></h2>
-          <img src="<%= locals.imgUrl %>" alt="Weather Icon" />
-          <h2><%= locals.temperature %> °C</h2>
-          <p><%= locals.description %></p>
+          <h2 class="city">Today's weather for <%= locals.cityName %> is</h2>
+          <div class="icon-temp">
+            <img src="<%= locals.imgUrl %>" alt="Weather Icon" />
+            <h2><%= locals.temperature %> °C</h2>
+          </div>
+
+          <p class="description"><%= locals.description %></p>
         </div>
       </div>
       <%}%>
     </main>
+    <footer class="footer">
+      <% const year = new Date().getFullYear(); %>
+      <p>&copy; <%= year %> . All rights reserved.</p>
+    </footer>
   </body>
 </html>
