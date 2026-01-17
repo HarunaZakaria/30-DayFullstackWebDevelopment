@@ -15,41 +15,22 @@ app.get("/", async (req, res) => {
   res.render("index.ejs");
 });
 
-app.get("/search", async (req, res) => {
-  const query = req.body.bookName;
+const url =
+  "https://api.openweathermap.org/data/2.5/weather?q=London&appid=7da51fcd67b2bed49eab674bcc25bcc1&units=metric";
 
-  const response = await axios.get(
-    `https://openlibrary.org/search.json?q=${query}`
-  );
-
-  const books = response.data.docs.map((book) => ({
-    title: book.title,
-    author: book.author_name?.[0],
-    year: book.first_publish_year,
-    pdf: book.ia ? `https://openlibrary.org/books/${book.ia}.pdf` : null,
-  }));
-
-  res.json(books);
-});
-//submit a form to search for books
 app.post("/submit", async (req, res) => {
-  const search = req.body.bookName;
-
+  const cityName = req.body.bookName;
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=7da51fcd67b2bed49eab674bcc25bcc1&units=metric`;
   try {
-    const response = await axios.get(
-      `https://openlibrary.org/search.json?q=${search}`
-    );
-    const books = response.data;
-    const title = books.docs[0].title;
-    const author = books.docs[0].author_name;
-    console.log(`Title: ${title}, Author: ${author}`);
-    res.render("index.ejs", { books: books });
+    const response = await axios.get(weatherUrl);
+    const weatherData = response.data;
+    console.log(weatherData);
+    const weatherDescription = `The weather in ${weatherData.name} is ${weatherData.weather[0].description} with a temperature of ${weatherData.main.temp}°C.`;
+    res.render("index.ejs", { weather: weatherDescription });
   } catch (error) {
-    console.error("Error fetching data from Google Books API:", error);
-    res.render("index.ejs", { books: [] });
+    res.render("index.ejs", { weather: "City not found. Please try again." });
   }
 });
-//define a route to handle POST requests
 
 //start the server
 app.listen(PORT, () => {

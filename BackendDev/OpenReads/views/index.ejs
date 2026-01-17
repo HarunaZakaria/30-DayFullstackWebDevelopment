@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/main.css" />
-    <title>openReads</title>
+    <title>openWeather</title>
   </head>
   <body>
     <header class="header">
-      <div class="logo">openReads</div>
+      <div class="logo">openWeather</div>
       <div class="header-title">
         <h1>Welcome to openWeather</h1>
         <p>Your gateway to check our city weather</p>
@@ -25,6 +25,7 @@
         <input type="submit" value="Search" />
       </form>
       <%= locals.weather %>
+      <img src="<%= locals.imgUrl %>" alt="Weather Icon" />
     </main>
   </body>
 </html>
