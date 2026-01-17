@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/main.css" />
-    <title>openWeather</title>
+    <title>todayWeather</title>
   </head>
   <body>
     <header class="header">
-      <div class="logo">openWeather</div>
+      <div class="logo"><h1>todayWeather</h1></div>
       <div class="header-title">
-        <h1>Welcome to openWeather</h1>
+        <h1>Welcome to todayWeather</h1>
         <p>Your gateway to check our city weather</p>
       </div>
     </header>
@@ -24,8 +24,19 @@
         />
         <input type="submit" value="Search" />
       </form>
-      <%= locals.weather %>
-      <img src="<%= locals.imgUrl %>" alt="Weather Icon" />
+
+      <%if (!locals.cityName){%>
+      <p>Enter your city name to check the weather</p>
+      <%} else{%>
+      <div class="weather-container">
+        <div class="weather-info">
+          <h2><%= locals.cityName %></h2>
+          <img src="<%= locals.imgUrl %>" alt="Weather Icon" />
+          <h2><%= locals.temperature %> °C</h2>
+          <p><%= locals.description %></p>
+        </div>
+      </div>
+      <%}%>
     </main>
   </body>
 </html>
