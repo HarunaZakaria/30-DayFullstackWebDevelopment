@@ -38,6 +38,19 @@ app.get("/jokes", (req, res) => {
 });
 
 //4. POST a new joke
+app.post("/jokes", (req, res) => {
+  const { jokeText, jokeType, key } = req.body;
+  if (key !== masterKey) {
+    return res.status(403).json({ message: "Invalid master key" });
+  }   
+  const newJoke = {
+    id: jokes.length + 1,
+    jokeText,
+    jokeType,
+  };
+  jokes.push(newJoke);
+  res.status(201).json(newJoke);
+});
 
 //5. PUT a joke
 
