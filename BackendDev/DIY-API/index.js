@@ -85,6 +85,20 @@ app.patch("/jokes/:id", (req, res) => {
   }
 });
 //7. DELETE Specific joke
+app.delete("/jokes/:id", (req, res) => {
+  const jokeId = parseInt(req.params.id);
+  const { key } = req.body;
+  if (key !== masterKey) {
+    return res.status(403).json({ message: "Invalid master key" });
+  } 
+  const jokeIndex = jokes.findIndex((j) => j.id === jokeId);
+  if (jokeIndex !== -1) {
+    jokes.splice(jokeIndex, 1);
+    res.json({ message: "Joke deleted successfully" });
+  } else {
+    res.status(404).json({ message: "Joke not found" });
+  }
+});
 
 //8. DELETE All jokes
 
