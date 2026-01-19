@@ -69,7 +69,21 @@ app.put("/jokes/:id", (req, res) => {
 });
 
 //6. PATCH a joke
-
+app.patch("/jokes/:id", (req, res) => {
+  const jokeId = parseInt(req.params.id);
+  const { jokeText, jokeType, key } = req.body;
+  if (key !== masterKey) {
+    return res.status(403).json({ message: "Invalid master key" });
+  } 
+  const joke = jokes.find((j) => j.id === jokeId);
+  if (joke) {
+    if (jokeText) joke.jokeText = jokeText;
+    if (jokeType) joke.jokeType = jokeType;
+    res.json(joke);
+  } else {
+    res.status(404).json({ message: "Joke not found" });
+  }
+});
 //7. DELETE Specific joke
 
 //8. DELETE All jokes
