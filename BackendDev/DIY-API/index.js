@@ -26,10 +26,10 @@ app.get("/jokes/:id", (req, res) => {
 
 //3. GET a jokes by filtering on the joke type
 app.get("/filter", (req, res) => {
-  const  type  = req.query.type;
+  const type = req.query.type;
   if (type) {
     const filteredJokes = jokes.filter(
-      (joke) => joke.jokeType.toLowerCase() === type.toLowerCase()
+      (joke) => joke.jokeType.toLowerCase() === type.toLowerCase(),
     );
     res.json(filteredJokes);
   } else {
@@ -42,7 +42,7 @@ app.post("/jokes", (req, res) => {
   const { jokeText, jokeType, key } = req.body;
   if (key !== masterKey) {
     return res.status(403).json({ message: "Invalid master key" });
-  }   
+  }
   const newJoke = {
     id: jokes.length + 1,
     jokeText,
@@ -58,7 +58,7 @@ app.put("/jokes/:id", (req, res) => {
   const { jokeText, jokeType, key } = req.body;
   if (key !== masterKey) {
     return res.status(403).json({ message: "Invalid master key" });
-  } 
+  }
   const jokeIndex = jokes.findIndex((j) => j.id === jokeId);
   if (jokeIndex !== -1) {
     jokes[jokeIndex] = { id: jokeId, jokeText, jokeType };
@@ -74,7 +74,7 @@ app.patch("/jokes/:id", (req, res) => {
   const { jokeText, jokeType, key } = req.body;
   if (key !== masterKey) {
     return res.status(403).json({ message: "Invalid master key" });
-  } 
+  }
   const joke = jokes.find((j) => j.id === jokeId);
   if (joke) {
     if (jokeText) joke.jokeText = jokeText;
@@ -90,7 +90,7 @@ app.delete("/jokes/:id", (req, res) => {
   const { key } = req.body;
   if (key !== masterKey) {
     return res.status(403).json({ message: "Invalid master key" });
-  } 
+  }
   const jokeIndex = jokes.findIndex((j) => j.id === jokeId);
   if (jokeIndex !== -1) {
     jokes.splice(jokeIndex, 1);
@@ -105,10 +105,10 @@ app.delete("/jokes", (req, res) => {
   const { key } = req.body;
   if (key !== masterKey) {
     return res.status(403).json({ message: "Invalid master key" });
-  } 
+  }
   jokes.length = 0;
   res.json({ message: "All jokes deleted successfully" });
-});     
+});
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
