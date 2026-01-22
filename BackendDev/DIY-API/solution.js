@@ -674,4 +674,10 @@ var jokes = [
     jokeText: "What do you call fake spaghetti? An impasta!",
     jokeType: "Food",
   },
+  
+  {
+    id: 101,
+    jokeText: "What do you call fake spaghetti? An impasta!",
+    jokeType: "Food",
+  },
 ];
