@@ -55,18 +55,27 @@ app.post("/jokes", (req, res) => {
 //5. PUT a joke
 app.put("/jokes/:id", (req, res) => {
   const jokeId = parseInt(req.params.id);
-  const { jokeText, jokeType, key } = req.body;
-  if (key !== masterKey) {
-    return res.status(403).json({ message: "Invalid master key" });
-  }
-  const jokeIndex = jokes.findIndex((j) => j.id === jokeId);
-  if (jokeIndex !== -1) {
-    jokes[jokeIndex] = { id: jokeId, jokeText, jokeType };
-    res.json(jokes[jokeIndex]);
-  } else {
-    res.status(404).json({ message: "Joke not found" });
-  }
+  const replacementJoke = {
+    id: id,
+    jokeText: req.body.jokeText,
+    jokeType: req.body.jokeType,
+  };
+  const searchIndex = jokes.findIndex((joke) => joke.id === jokeId);
+  jokes[searchIndex] = replacementJoke;
+  res.json(replacementJoke);
 });
+//   const { jokeText, jokeType, key } = req.body;
+//   if (key !== masterKey) {
+//     return res.status(403).json({ message: "Invalid master key" });
+//   }
+//   const jokeIndex = jokes.findIndex((j) => j.id === jokeId);
+//   if (jokeIndex !== -1) {
+//     jokes[jokeIndex] = { id: jokeId, jokeText, jokeType };
+//     res.json(jokes[jokeIndex]);
+//   } else {
+//     res.status(404).json({ message: "Joke not found" });
+//   }
+// });
 
 //6. PATCH a joke
 app.patch("/jokes/:id", (req, res) => {
