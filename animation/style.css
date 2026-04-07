@@ -8,8 +8,8 @@
   margin: 0 auto;
   text-align: center;
 }
-/* Box styles here */
-.box {
+/* Box0 styles here */
+.box0 {
   width: 200px;
   height: 200px;
   background-color: brown;
@@ -19,14 +19,31 @@
   transition: background-color 1s ease;
   transition: scale 1s ease;
 }
-.box:hover {
+.box0:hover {
   transform: rotate(125deg);
   background-color: aqua;
-  scale: 2 1;
+  scale: 2;
 }
-@keyframes moveRotate {
-  to {
-    transform: translateX(-80vw) rotate(360deg);
-    scale: 5;
+/* Box1 styles here */
+.box1 {
+  background-color: blue;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+
+  animation-name: example;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+}
+@keyframes example {
+  from {
+    transform: translateY(0px) rotate(0deg);
+  }
+  to{
+    transform: translateY(-100px) rotate(360deg);
   }
 }
