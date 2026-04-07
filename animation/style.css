@@ -8,3 +8,25 @@
   margin: 0 auto;
   text-align: center;
 }
+/* Box styles here */
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: brown;
+  margin: 30px auto;
+  /* transformation effects */
+  transition: transform 1s ease;
+  transition: background-color 1s ease;
+  transition: scale 1s ease;
+}
+.box:hover {
+  transform: rotate(125deg);
+  background-color: aqua;
+  scale: 2 1;
+}
+@keyframes moveRotate {
+  to {
+    transform: translateX(-80vw) rotate(360deg);
+    scale: 5;
+  }
+}
