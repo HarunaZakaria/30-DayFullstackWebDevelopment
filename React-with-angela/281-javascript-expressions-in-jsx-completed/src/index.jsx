@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 
 const fName = "Haruna";
 const lName = "Zakaria";
-const lNum = 9;
+const age = 27;
 
 ReactDOM.render(
   <div>
     <h1>Hello {fName + " " + lName}!</h1>
-    <p>Your lucky number is {lNum}</p>
+    <p>You are now {age} years old</p>
   </div>,
   document.getElementById("root"),
 );
