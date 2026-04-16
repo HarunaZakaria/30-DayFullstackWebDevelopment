@@ -13,11 +13,33 @@ import ReactDom from "react-dom";
 
 const fullName = "Zakaria Haruna";
 const currentYear = new Date().getFullYear();
-console.log(currentYear);
+const imgUrl = "https://picsum.photos/200/300";
 
 ReactDom.render(
   <>
     <p>Created by {fullName}</p>
+    <div className="food">
+      <div>
+        <img
+          src={imgUrl}
+          alt="photo"
+          className="food-img"
+          style={{ width: 100, margin: 20 }}
+        />
+        <img
+          src={imgUrl}
+          alt="photo"
+          className="food-img"
+          style={{ width: 100, margin: 20 }}
+        />
+        <img
+          src={imgUrl}
+          alt="photo"
+          className="food-img"
+          style={{ width: 100, margin: 20 }}
+        />
+      </div>
+    </div>
     <p>Copyright {currentYear}</p>
   </>,
   document.querySelector("#root"),
