@@ -12,7 +12,8 @@ import React from "react";
 import ReactDom from "react-dom";
 
 const fullName = "Zakaria Haruna";
-const currentYear = 2026;
+const currentYear = new Date().getFullYear();
+console.log(currentYear);
 
 ReactDom.render(
   <>
