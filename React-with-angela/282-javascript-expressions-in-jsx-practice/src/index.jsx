@@ -24,19 +24,19 @@ ReactDom.render(
           src={imgUrl}
           alt="photo"
           className="food-img"
-          style={{ width: 100, margin: 20 }}
+          style={{ width: "100px", height: "140px", margin: "10px" }}
         />
         <img
           src={imgUrl}
           alt="photo"
           className="food-img"
-          style={{ width: 100, margin: 20 }}
+          style={{ width: "100px", height: "130px", margin: "10px " }}
         />
         <img
           src={imgUrl}
           alt="photo"
           className="food-img"
-          style={{ width: 100, margin: 20 }}
+          style={{ width: "100px", height: "120px", margin: "10px" }}
         />
       </div>
     </div>
