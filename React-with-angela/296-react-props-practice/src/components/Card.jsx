@@ -1,4 +1,5 @@
 import Avator from "./Avator";
+import Detail from "./Details";
 
 export default function Card(props) {
   return (
@@ -6,11 +7,11 @@ export default function Card(props) {
       <div className="card">
         <div className="top">
           <h2 className="name">{props.name}</h2>
-          <Avator img={props.img}/>
+          <Avator img={props.img} />
         </div>
         <div className="bottom">
-          <p className="info">{props.phone}</p>
-          <p className="info">{props.email}</p>
+          <Detail title={props.phone} />
+          <Detail title={props.email} />
         </div>
       </div>
     </div>
