@@ -1,11 +1,12 @@
-export default function Card(props) {
+import Avator from "./Avator";
 
+export default function Card(props) {
   return (
     <div>
       <div className="card">
         <div className="top">
           <h2 className="name">{props.name}</h2>
-          <img src={props.img} alt={props.name} className="circle-img" />
+          <Avator img={props.img}/>
         </div>
         <div className="bottom">
           <p className="info">{props.phone}</p>
