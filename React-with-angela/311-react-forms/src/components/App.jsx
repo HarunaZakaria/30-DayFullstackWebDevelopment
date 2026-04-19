@@ -7,19 +7,23 @@ function App() {
     setName(e.target.value);
     //console.log(e.target.value);
   }
-  function greetName() {
+  function greetName(e) {
     setHeadText(name);
+    e.preventDefault();
+
   }
   return (
     <div className="container">
       <h1>Hello {headText} </h1>
-      <input
-        type="text"
-        placeholder="What's your name?"
-        onChange={changeEvent}
-        value={name}
-      />
-      <button onClick={greetName}>Submit</button>
+      <form onSubmit={greetName}>
+        <input
+          type="text"
+          placeholder="What's your name?"
+          onChange={changeEvent}
+          value={name}
+        />
+        <button>Submit</button>
+      </form>
     </div>
   );
 }
