@@ -1,44 +1,63 @@
 import React, { useState } from "react";
 
 function App() {
-  // const [contact, setContact] = useState({
-  //   fName: "",
-  //   lName: "",
-  //   email: "",
-  // });
+  const [contact, setContact] = useState({
+    fName: "",
+    lName: "",
+    email: "",
+  });
 
-  const [fName, setFName] = useState("");
-  const [lName, setLName] = useState("");
-  const [email, setEmail] = useState("");
-
-  const [updatedFName, setUpdatedFName] = useState("");
-  const [updatedLName, setUpdatedLName] = useState("");
-  const [updatedEmail, setupdatedEmail] = useState("");
-  function updateContact(event) {
-    //event.preventDefault();
-    const [setFName, setLName, setEmail] = event.target.value;
+  // handle a change event
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setContact((preValue) => {
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: preValue.lName,
+          email: preValue.email,
+        };
+      } else if (name === "lName") {
+        return {
+          fName: preValue.fName,
+          lName: value,
+          email: preValue.email,
+        };
+      } else if (name === "email") {
+        return {
+          fName: preValue.fName,
+          lName: preValue.lName,
+          email: value,
+        };
+      }
+    });
   }
 
-  function updatContact(e) {
-    e.preventDefault()
-    setUpdatedFName(fName);
-    setUpdatedFName(lName);
-    setUpdatedFName(email);
-  }
-
-  console.log(updatedFName)
-  console.log(updatedLName)
-  console.log(updatedEmail)
   return (
     <div className="container">
       <h1>
-        Hello {updatedFName} {updatedLName}
+        Hello {contact.fName} {contact.lName}
       </h1>
-      <p>{updatedEmail}</p>
-      <form onSubmit={updatContact}>
-        <input name="fName" placeholder="First Name" onChange={updateContact} />
-        <input name="lName" placeholder="Last Name" onChange={updateContact} />
-        <input name="email" placeholder="Email" onChange={updateContact} />
+      <p>{contact.email}</p>
+      <form>
+        <input
+          name="fName"
+          placeholder="First Name"
+          onChange={handleChange}
+          value={contact.fName}
+        />
+        <input
+          name="lName"
+          placeholder="Last Name"
+          onChange={handleChange}
+          value={contact.lName}
+        />
+        <input
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          value={contact.email}
+        />
         <button>Submit</button>
       </form>
     </div>
