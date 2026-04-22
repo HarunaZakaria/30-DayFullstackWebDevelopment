@@ -20,15 +20,15 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input type="text" onChange={handleTaskChange} value={task.name} />
+        <input type="text" onChange={handleTaskChange} value={task} />
         <button onClick={addTask}>
           <span>Add</span>
         </button>
       </div>
       <div>
         <ul>
-          {tasksList.map((task) => {
-            return <li key={task}>{task}</li>;
+          {tasksList.map((task, index) => {
+            return <li key={index}>{task}</li>;
           })}
         </ul>
       </div>
